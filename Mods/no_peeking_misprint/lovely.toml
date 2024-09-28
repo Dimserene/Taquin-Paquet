@@ -1,0 +1,34 @@
+[manifest]
+version = "1.0.0"
+dump_lua = true
+priority = 1
+
+# this mod forces misprint to show the fallback card (Jack of Diamonds) when viewed in collection
+
+[[patches]]
+[patches.pattern]
+target = "card.lua"
+position = "before"
+pattern = 'for i = self.ability.extra.min, self.ability.extra.max do'
+match_indent = true
+payload = '''local misprint_collection = nil
+if G.your_collection then
+	for i = 1, #G.your_collection do
+		if G.your_collection[i].cards then
+			for c = 1, #G.your_collection[i].cards do
+				if G.your_collection[i].cards[c] == self then
+					misprint_collection = true
+					break
+				end
+			end
+		end
+	end
+end'''
+
+[[patches]]
+[patches.pattern]
+target = "card.lua"
+position = "at"
+pattern = '''{string = 'rand()', colour = G.C.JOKER_GREY},{string = "#@"..(G.deck and G.deck.cards[1] and G.deck.cards[#G.deck.cards].base.id or 11)..(G.deck and G.deck.cards[1] and G.deck.cards[#G.deck.cards].base.suit:sub(1,1) or 'D'), colour = G.C.RED},'''
+match_indent = true
+payload = '''{string = 'rand()', colour = G.C.JOKER_GREY},{string = "#@"..(misprint_collection and 11 or G.deck and G.deck.cards[1] and G.deck.cards[#G.deck.cards].base.id or 11)..(misprint_collection and 'D' or G.deck and G.deck.cards[1] and G.deck.cards[#G.deck.cards].base.suit:sub(1,1) or 'D'), colour = G.C.RED},'''
