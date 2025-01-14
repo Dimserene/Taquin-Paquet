@@ -1,0 +1,13 @@
+{
+    "id": "Rickroll",
+    "name": "Rick Roll",
+    "author": ["BuddyHollyMallCop"],
+    "description": "You know the rules... and so do I ;)",
+    "prefix": "roll",
+    "main_file": "rick.lua",
+    "badge_colour": "c7638f",
+    "dependencies": [
+        "Steamodded (>=1.0.0~ALPHA-1225a)"
+    ],
+    "version": "1.0.0"
+}
