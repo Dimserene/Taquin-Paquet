@@ -4,12 +4,12 @@
 [submodule "Mods/fish"]
 	path = Mods/fish
 	url = https://github.com/VictinZero/balatro-fish
-[submodule "Mods/balagay"]
-	path = Mods/balagay
-	url = https://github.com/GitNether/balagay
 [submodule "Mods/Steamodded"]
 	path = Mods/Steamodded
 	url = https://github.com/Steamopollys/Steamodded
 [submodule "Mods/DebugPlus"]
 	path = Mods/DebugPlus
 	url = https://github.com/WilsontheWolf/DebugPlus
+[submodule "Mods/gaypenis"]
+	path = Mods/gaypenis
+	url = https://github.com/fosterbarnes/balatroGayPenis
